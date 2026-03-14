@@ -56,7 +56,14 @@ body, html {
     line-height: 2.5;
     transition: all 0.8s ease;
 }
-
+/* style.css içine ekle veya güncelle */
+.lyrics-window {
+    height: 60px; /* Sadece tek satır odaklı olması için daralttık */
+    margin: 30px 0;
+    overflow: hidden;
+    mask-image: linear-gradient(transparent, black 20%, black 80%, transparent);
+    -webkit-mask-image: linear-gradient(transparent, black 20%, black 80%, transparent);
+}
 button {
     background: rgba(255, 255, 255, 0.1);
     border: 1px solid #fff;
