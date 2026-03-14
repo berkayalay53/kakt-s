@@ -1,21 +1,14 @@
-const music = document.getElementById('music');
-const playBtn = document.getElementById('playBtn');
-const lyrics = document.getElementById('lyrics-content');
-
-function togglePlay() {
-    if (music.paused) {
-        music.play();
-        playBtn.innerText = "DURAKLAT";
+// script.js dosyasını bu şekilde güncelle:
+music.ontimeupdate = function() {
+    let currentTime = music.currentTime;
+    
+    if (currentTime > 4.5 && currentTime < 9) {
+        lyricsContent.style.transform = "translateY(-50px)";
+    } else if (currentTime >= 9 && currentTime < 13.5) {
+        lyricsContent.style.transform = "translateY(-100px)";
+    } else if (currentTime >= 13.5) {
+        lyricsContent.style.transform = "translateY(-150px)";
     } else {
-        music.pause();
-        playBtn.innerText = "DEVAM ET";
+        lyricsContent.style.transform = "translateY(0)";
     }
-}
-
-// Şarkı aktıkça sözleri saniyeye göre kaydıralım
-music.ontimeupdate = () => {
-    const time = music.currentTime;
-    if (time > 4) lyrics.style.transform = "translateY(-65px)";
-    if (time > 8) lyrics.style.transform = "translateY(-130px)";
-    if (time > 12) lyrics.style.transform = "translateY(-195px)";
 };
